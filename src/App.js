@@ -23,11 +23,14 @@ function App() {
         setLoading(false);
       } else {
         const result = await axios(
-          `http://gateway.marvel.com/v1/public/characters?nameStartsWith=${query}ts=1&apikey=344d40df0c8cc373141c1dc321fae9cf&hash=${hash}`,
+          `http://gateway.marvel.com/v1/public/characters?nameStartsWith=${query}&ts=1&apikey=344d40df0c8cc373141c1dc321fae9cf&hash=${hash}`,
         );
         console.log(result.data.data.results);
         setItems(result.data.data.results);
         setLoading(false);
+        console.log(
+          `http://gateway.marvel.com/v1/public/characters?nameStartsWith=${query}&ts=1&apikey=344d40df0c8cc373141c1dc321fae9cf&hash=${hash}`,
+        );
       }
     };
     fetch();
